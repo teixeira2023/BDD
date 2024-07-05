@@ -1,15 +1,13 @@
 from behave import given, when, then
 
 # Inicializando os estados
-@given('the cabin light state is {initial_state}')
+@given('the current cabin light state is {initial_state}')
 def step_given_cabin_light_state(context, initial_state):
     context.cabin_light_state = initial_state
 
 @given('the range selection is {range_value}')
 def step_given_range_selection(context,range_value):
     context.range_selection = range_value
-
-    # raise NotImplementedError('the expected value is: {range_value},  the current value is : {range_selection}')
 
 @given('the vehicle power mode is greater than 10')
 def step_given_vehicle_power_mode(context):

@@ -17,4 +17,5 @@ def test_turn_on_cabin_light(initial_state, final_state):
     
     result = toggle_cabin_light(initial_state, power_mode, range_selection, toggle_button)
     
-    assert result == final_state, f"Erro: Esperado {final_state}, mas obtido {result}"
+    assert result == final_state, f"Error: Expected {final_state}, but got {result}"
+

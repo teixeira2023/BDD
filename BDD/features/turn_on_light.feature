@@ -1,8 +1,8 @@
 
 Feature: Turn on the light in the vehicle cabin
-    @skip
+    
     Scenario Outline: turn on the cabin light
-        Given the cabin light state is <initial_state>
+        Given the current cabin light state is <initial_state>
         And the range selection is  <range_value>
         And the vehicle power mode is greater than 10
         When the user presses the toggle button <toggle_value>
@@ -11,6 +11,6 @@ Feature: Turn on the light in the vehicle cabin
         Examples:
             | initial_state | range_value | toggle_value | final_state |
             | off           | Park        | pressed      | on          |
-            | on            | Park        | pressed      | off          |
+            | on            | Park        | pressed      | off         |
 
 
