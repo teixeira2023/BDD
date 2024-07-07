@@ -25,12 +25,13 @@ def step_when_user_presses_toggle_button(context, toggle_value):
         context.toggle_value == 'pressed'
     )
     context.cabin_curr_light_state = 'on' if should_light_be_on else 'off'
-    print(f"cabin_light_state: {context.cabin_light_state}")
-    print(f"range_selection: {context.range_selection}")
-    print(f"vehicle_power_mode: {context.vehicle_power_mode}")
-    print(f"toggle_value: {toggle_value}")
-    print(f"cabin_curr_light_state: {context.cabin_curr_light_state}")
+    
     
 @then('the light state should be {final_state}')
 def step_then_light_state_should_be(context,final_state):
     assert context.cabin_curr_light_state == final_state, f"Erro: Esperado {final_state}, mas obtido {context.cabin_curr_light_state}"
+    print(f"cabin_light_state: {context.cabin_light_state}")
+    print(f"range_selection: {context.range_selection}")
+    print(f"vehicle_power_mode: {context.vehicle_power_mode}")
+    # print(f"toggle_value: {toggle_value}")
+    print(f"cabin_curr_light_state: {context.cabin_curr_light_state}")

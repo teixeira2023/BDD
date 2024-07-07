@@ -1,0 +1,163 @@
+Feature: Pass a dictionary to Python # features/dictionary.feature:3
+
+  Scenario: Pass a dictionary as a table           # features/dictionary.feature:5
+    Given the following dictionary                 # steps/dictionary_test.py:5
+      | chave  | valor  |
+      | chave1 | valor1 |
+      | chave2 | valor2 |
+    Then the dictionary should be correctly passed # steps/dictionary_test.py:9
+
+Feature: Turn on the light in the vehicle cabin # features/dimming.feature:1
+
+  Scenario Outline: Dim the cabin light when the button is held for more than one second -- @1.1   # features/dimming.feature:11
+    Given the new cabin light state is set to on                                                   # steps/dim_validation.py:3
+    And the light brightness is 100                                                                # steps/dim_validation.py:8
+    When the user holds the toggle button for more than one second 1                               # steps/dim_validation.py:13
+    Then the light brightness should decrease by 10 percent per second 90                          # steps/dim_validation.py:18
+
+  Scenario Outline: Dim the cabin light when the button is held for more than one second -- @1.2   # features/dimming.feature:12
+    Given the new cabin light state is set to on                                                   # steps/dim_validation.py:3
+    And the light brightness is 90                                                                 # steps/dim_validation.py:8
+    When the user holds the toggle button for more than one second 1                               # steps/dim_validation.py:13
+    Then the light brightness should decrease by 10 percent per second 81                          # steps/dim_validation.py:18
+
+  Scenario Outline: Dim the cabin light when the button is held for more than one second -- @1.3   # features/dimming.feature:13
+    Given the new cabin light state is set to on                                                   # steps/dim_validation.py:3
+    And the light brightness is 80                                                                 # steps/dim_validation.py:8
+    When the user holds the toggle button for more than one second 1                               # steps/dim_validation.py:13
+    Then the light brightness should decrease by 10 percent per second 72                          # steps/dim_validation.py:18
+
+  Scenario Outline: Dim the cabin light when the button is held for more than one second -- @1.4   # features/dimming.feature:14
+    Given the new cabin light state is set to on                                                   # steps/dim_validation.py:3
+    And the light brightness is 70                                                                 # steps/dim_validation.py:8
+    When the user holds the toggle button for more than one second 1                               # steps/dim_validation.py:13
+    Then the light brightness should decrease by 10 percent per second 63                          # steps/dim_validation.py:18
+
+  Scenario Outline: Dim the cabin light when the button is held for more than one second -- @1.5   # features/dimming.feature:15
+    Given the new cabin light state is set to on                                                   # steps/dim_validation.py:3
+    And the light brightness is 60                                                                 # steps/dim_validation.py:8
+    When the user holds the toggle button for more than one second 1                               # steps/dim_validation.py:13
+    Then the light brightness should decrease by 10 percent per second 54                          # steps/dim_validation.py:18
+
+  Scenario Outline: Dim the cabin light when the button is held for more than one second -- @1.6   # features/dimming.feature:16
+    Given the new cabin light state is set to on                                                   # steps/dim_validation.py:3
+    And the light brightness is 50                                                                 # steps/dim_validation.py:8
+    When the user holds the toggle button for more than one second 1                               # steps/dim_validation.py:13
+    Then the light brightness should decrease by 10 percent per second 45                          # steps/dim_validation.py:18
+
+  Scenario Outline: Dim the cabin light when the button is held for more than one second -- @1.7   # features/dimming.feature:17
+    Given the new cabin light state is set to on                                                   # steps/dim_validation.py:3
+    And the light brightness is 40                                                                 # steps/dim_validation.py:8
+    When the user holds the toggle button for more than one second 1                               # steps/dim_validation.py:13
+    Then the light brightness should decrease by 10 percent per second 36                          # steps/dim_validation.py:18
+
+  Scenario Outline: Dim the cabin light when the button is held for more than one second -- @1.8   # features/dimming.feature:18
+    Given the new cabin light state is set to on                                                   # steps/dim_validation.py:3
+    And the light brightness is 30                                                                 # steps/dim_validation.py:8
+    When the user holds the toggle button for more than one second 1                               # steps/dim_validation.py:13
+    Then the light brightness should decrease by 10 percent per second 27                          # steps/dim_validation.py:18
+
+  Scenario Outline: Dim the cabin light when the button is held for more than one second -- @1.9   # features/dimming.feature:19
+    Given the new cabin light state is set to on                                                   # steps/dim_validation.py:3
+    And the light brightness is 20                                                                 # steps/dim_validation.py:8
+    When the user holds the toggle button for more than one second 1                               # steps/dim_validation.py:13
+    Then the light brightness should decrease by 10 percent per second 18                          # steps/dim_validation.py:18
+
+  Scenario Outline: Dim the cabin light when the button is held for more than one second -- @1.10   # features/dimming.feature:20
+    Given the new cabin light state is set to on                                                    # steps/dim_validation.py:3
+    And the light brightness is 10                                                                  # steps/dim_validation.py:8
+    When the user holds the toggle button for more than one second 1                                # steps/dim_validation.py:13
+    Then the light brightness should decrease by 10 percent per second 9                            # steps/dim_validation.py:18
+
+Feature: Cab As Office # features/lightOn.feature:1
+
+  Scenario Outline: the light turns off when preconditions are not met -- @1.1   # features/lightOn.feature:15
+    Given the cab light is on                                                    # steps/lightOn_test.py:5
+    And the timer is active                                                      # None
+    And the on timer is 10                                                       # None
+    When the driver shifts Park                                                  # None
+    Then the cab light turns off                                                 # None
+    And the timer goes active                                                    # None
+    And the on timer resets to 10                                                # None
+
+  Scenario Outline: the light turns off when preconditions are not met -- @1.2   # features/lightOn.feature:16
+    Given the cab light is on                                                    # steps/lightOn_test.py:5
+    And the timer is active                                                      # None
+    And the on timer is 10                                                       # None
+    When the driver shifts Park                                                  # None
+    Then the cab light turns on                                                  # None
+    And the timer goes active                                                    # None
+    And the on timer resets to 10                                                # None
+
+  Scenario Outline: the light turns off when preconditions are not met -- @1.3   # features/lightOn.feature:17
+    Given the cab light is on                                                    # steps/lightOn_test.py:5
+    And the timer is active                                                      # None
+    And the on timer is 10                                                       # None
+    When the driver shifts Park                                                  # None
+    Then the cab light turns off                                                 # None
+    And the timer goes inactive                                                  # None
+    And the on timer resets to 10                                                # None
+
+  Scenario Outline: the light turns off when preconditions are not met -- @1.4   # features/lightOn.feature:18
+    Given the cab light is on                                                    # steps/lightOn_test.py:5
+    And the timer is active                                                      # None
+    And the on timer is 10                                                       # None
+    When the driver shifts Park                                                  # None
+    Then the cab light turns on                                                  # None
+    And the timer goes inactive                                                  # None
+    And the on timer resets to 10                                                # None
+
+Feature: Set the feature enable when the user changes the gear position out of Park # features/parameter.feature:1
+
+  Scenario: Enable the feature when the user changes the gear position out of Park  # features/parameter.feature:3
+    Given the cabin light state is 'on'                                             # steps/parameter_test.py:5
+    And the gear is in 'Park'                                                       # steps/parameter_test.py:9
+    When the user changes the gear position out of 'Park'                           # steps/parameter_test.py:13
+    Then the cabin light state should be 'off'                                      # steps/parameter_test.py:18
+
+Feature: Pass a dictionary to Python # features/precond_json.feature:3
+
+  Scenario: Pass a dictionary as JSON                             # features/precond_json.feature:5
+    Given the following dictionary as JSON                        # steps/precond_json.py:6
+      """
+      {
+          "light_state": "on",
+          "feature_state": "enabled"
+      }
+      """
+    Then the dictionary should be correctly passed in json format # steps/precond_json.py:10
+
+Feature: Set vehicle precondiotions # features/precondition.feature:1
+
+  Scenario: Set vehicle precondiotions                # features/precondition.feature:3
+    Given the vehicle power mode is between 20 and 70 # steps/precondition_test.py:4
+      | power_mode | value |
+      | power_mode | 20    |
+      | power_mode | 40    |
+      | power_mode | 50    |
+      | power_mode | 60    |
+      | power_mode | 70    |
+    And the vehicle range selection is Park           # steps/precondition_test.py:7
+      | range_selection | value |
+      | range_selection | Park  |
+    And the cabin light state is off                  # steps/precondition_test.py:11
+      | light_state | value |
+      | light_state | off   |
+    Then the cabin light feature should be enabled    # steps/precondition_test.py:15
+
+Feature: Turn on the light in the vehicle cabin # features/turn_on_light.feature:2
+
+  Scenario Outline: turn on the cabin light -- @1.1   # features/turn_on_light.feature:13
+    Given the current cabin light state is off        # steps/validation.py:4
+    And the range selection is  Park                  # steps/validation.py:8
+    And the vehicle power mode is greater than 10     # steps/validation.py:12
+    When the user presses the toggle button pressed   # steps/validation.py:16
+    Then the light state should be on                 # steps/validation.py:30
+
+  Scenario Outline: turn on the cabin light -- @1.2   # features/turn_on_light.feature:14
+    Given the current cabin light state is on         # steps/validation.py:4
+    And the range selection is  Park                  # steps/validation.py:8
+    And the vehicle power mode is greater than 10     # steps/validation.py:12
+    When the user presses the toggle button pressed   # steps/validation.py:16
+    Then the light state should be off                # steps/validation.py:30
+
