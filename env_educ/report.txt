@@ -1,0 +1,12 @@
+Feature: Operações básicas de uma calculadora # features/calculadora.feature:1
+
+  Scenario: Somar dois números              # features/calculadora.feature:3
+    Given que o usuário tem uma calculadora # steps/calculadora_steps.py:9
+    When o usuário soma 5 e 7               # steps/calculadora_steps.py:15
+    Then o resultado deve ser 12            # steps/calculadora_steps.py:20
+
+  Scenario: Subtrair dois números           # features/calculadora.feature:8
+    Given que o usuário tem uma calculadora # steps/calculadora_steps.py:9
+    When o usuário subtrai 9 e 7            # steps/calculadora_steps.py:32
+    Then o resultado deve ser 2             # steps/calculadora_steps.py:20
+

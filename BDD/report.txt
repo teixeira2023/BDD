@@ -1,3 +1,86 @@
+Feature: Cab As Office Light # features/lightOn.feature:1 # features/CAO_brightness.feature:1
+
+  Scenario Outline: Dimming the light by holding the Hard Button # features/dimming.feature:1 -- @1.1   # features/CAO_brightness.feature:15
+    Given the current cabin light is "on" # steps/validation.py:1                                       # None
+    And the cab as office hard button is "pressed"                                                      # None
+    And the value of dimming is "100"                                                                   # None
+    And the light control menu is "displayed"                                                           # None
+    And the hold timer is "4" seconds                                                                   # None
+    When the driver "releases" the cabin as office hard button                                          # None
+    Then the cab as Office Light feature should set the luminosity to "20" %                            # None
+
+  Scenario Outline: Dimming the light by holding the Hard Button # features/dimming.feature:1 -- @1.2   # features/CAO_brightness.feature:16
+    Given the current cabin light is "on" # steps/validation.py:1                                       # None
+    And the cab as office hard button is "pressed"                                                      # None
+    And the value of dimming is "90"                                                                    # None
+    And the light control menu is "displayed"                                                           # None
+    And the hold timer is "3.5" seconds                                                                 # None
+    When the driver "releases" the cabin as office hard button                                          # None
+    Then the cab as Office Light feature should set the luminosity to "20" %                            # None
+
+  Scenario Outline: Dimming the light by holding the Hard Button # features/dimming.feature:1 -- @1.3   # features/CAO_brightness.feature:17
+    Given the current cabin light is "on" # steps/validation.py:1                                       # None
+    And the cab as office hard button is "pressed"                                                      # None
+    And the value of dimming is "80"                                                                    # None
+    And the light control menu is "displayed"                                                           # None
+    And the hold timer is "3" seconds                                                                   # None
+    When the driver "releases" the cabin as office hard button                                          # None
+    Then the cab as Office Light feature should set the luminosity to "20" %                            # None
+
+  Scenario Outline: Dimming the light by holding the Hard Button # features/dimming.feature:1 -- @1.4   # features/CAO_brightness.feature:18
+    Given the current cabin light is "on" # steps/validation.py:1                                       # None
+    And the cab as office hard button is "pressed"                                                      # None
+    And the value of dimming is "70"                                                                    # None
+    And the light control menu is "displayed"                                                           # None
+    And the hold timer is "2.5" seconds                                                                 # None
+    When the driver "releases" the cabin as office hard button                                          # None
+    Then the cab as Office Light feature should set the luminosity to "20" %                            # None
+
+  Scenario Outline: Dimming the light by holding the Hard Button # features/dimming.feature:1 -- @1.5   # features/CAO_brightness.feature:19
+    Given the current cabin light is "on" # steps/validation.py:1                                       # None
+    And the cab as office hard button is "pressed"                                                      # None
+    And the value of dimming is "60"                                                                    # None
+    And the light control menu is "displayed"                                                           # None
+    And the hold timer is "2" seconds                                                                   # None
+    When the driver "releases" the cabin as office hard button                                          # None
+    Then the cab as Office Light feature should set the luminosity to "20" %                            # None
+
+  Scenario Outline: Dimming the light by holding the Hard Button # features/dimming.feature:1 -- @1.6   # features/CAO_brightness.feature:20
+    Given the current cabin light is "on" # steps/validation.py:1                                       # None
+    And the cab as office hard button is "pressed"                                                      # None
+    And the value of dimming is "50"                                                                    # None
+    And the light control menu is "displayed"                                                           # None
+    And the hold timer is "1.5" seconds                                                                 # None
+    When the driver "releases" the cabin as office hard button                                          # None
+    Then the cab as Office Light feature should set the luminosity to "20" %                            # None
+
+  Scenario Outline: Dimming the light by holding the Hard Button # features/dimming.feature:1 -- @1.7   # features/CAO_brightness.feature:21
+    Given the current cabin light is "on" # steps/validation.py:1                                       # None
+    And the cab as office hard button is "pressed"                                                      # None
+    And the value of dimming is "40"                                                                    # None
+    And the light control menu is "displayed"                                                           # None
+    And the hold timer is "1" seconds                                                                   # None
+    When the driver "releases" the cabin as office hard button                                          # None
+    Then the cab as Office Light feature should set the luminosity to "20" %                            # None
+
+  Scenario Outline: Dimming the light by holding the Hard Button # features/dimming.feature:1 -- @1.8   # features/CAO_brightness.feature:22
+    Given the current cabin light is "on" # steps/validation.py:1                                       # None
+    And the cab as office hard button is "pressed"                                                      # None
+    And the value of dimming is "30"                                                                    # None
+    And the light control menu is "displayed"                                                           # None
+    And the hold timer is "0.5" seconds                                                                 # None
+    When the driver "releases" the cabin as office hard button                                          # None
+    Then the cab as Office Light feature should set the luminosity to "20" %                            # None
+
+  Scenario Outline: Dimming the light by holding the Hard Button # features/dimming.feature:1 -- @1.9   # features/CAO_brightness.feature:23
+    Given the current cabin light is "on" # steps/validation.py:1                                       # None
+    And the cab as office hard button is "pressed"                                                      # None
+    And the value of dimming is "50"                                                                    # None
+    And the light control menu is "displayed"                                                           # None
+    And the hold timer is "4" seconds                                                                   # None
+    When the driver "releases" the cabin as office hard button                                          # None
+    Then the cab as Office Light feature should set the luminosity to "10" %                            # None
+
 Feature: Pass a dictionary to Python # features/dictionary.feature:3
 
   Scenario: Pass a dictionary as a table           # features/dictionary.feature:5
@@ -73,39 +156,35 @@ Feature: Cab As Office # features/lightOn.feature:1
 
   Scenario Outline: the light turns off when preconditions are not met -- @1.1   # features/lightOn.feature:15
     Given the cab light is on                                                    # steps/lightOn_test.py:5
-    And the timer is active                                                      # None
-    And the on timer is 10                                                       # None
-    When the driver shifts Park                                                  # None
-    Then the cab light turns off                                                 # None
-    And the timer goes active                                                    # None
-    And the on timer resets to 10                                                # None
+    And the timer is active                                                      # steps/lightOn_test.py:10
+    And the on timer is 10                                                       # steps/lightOn_test.py:15
+    When the driver shifts Park                                                  # steps/lightOn_test.py:21
+    Then the cab light shall turns on                                            # steps/lightOn_test.py:29
+    And the timer goes active                                                    # steps/lightOn_test.py:35
+    And the on timer resets to 10                                                # steps/lightOn_test.py:41
 
   Scenario Outline: the light turns off when preconditions are not met -- @1.2   # features/lightOn.feature:16
     Given the cab light is on                                                    # steps/lightOn_test.py:5
-    And the timer is active                                                      # None
-    And the on timer is 10                                                       # None
-    When the driver shifts Park                                                  # None
-    Then the cab light turns on                                                  # None
-    And the timer goes active                                                    # None
-    And the on timer resets to 10                                                # None
+    And the timer is active                                                      # steps/lightOn_test.py:10
+    And the on timer is 10                                                       # steps/lightOn_test.py:15
+    When the driver shifts Not in Park                                           # steps/lightOn_test.py:21
+    Then the cab light shall turns off                                           # steps/lightOn_test.py:29
+    And the timer goes inactive                                                  # steps/lightOn_test.py:35
+    And the on timer resets to 0                                                 # steps/lightOn_test.py:41
 
-  Scenario Outline: the light turns off when preconditions are not met -- @1.3   # features/lightOn.feature:17
-    Given the cab light is on                                                    # steps/lightOn_test.py:5
-    And the timer is active                                                      # None
-    And the on timer is 10                                                       # None
-    When the driver shifts Park                                                  # None
-    Then the cab light turns off                                                 # None
-    And the timer goes inactive                                                  # None
-    And the on timer resets to 10                                                # None
+Feature: Teste com múltiplos exemplos # features/nova_tabela_examples.feature:1
+  Testando múltiplos conjuntos de dados com Scenario Outline
+  @feat2 @scenario2
+  Scenario Outline: Teste de login com múltiplos usuários -- @1.1   # features/nova_tabela_examples.feature:12
+    Given I am on the login page                                    # steps/nova_tabela_test.py:3
+    When I enter the username "user1" and the password "pass1"      # steps/nova_tabela_test.py:7
+    Then I should see the message "Login successful"                # steps/nova_tabela_test.py:14
 
-  Scenario Outline: the light turns off when preconditions are not met -- @1.4   # features/lightOn.feature:18
-    Given the cab light is on                                                    # steps/lightOn_test.py:5
-    And the timer is active                                                      # None
-    And the on timer is 10                                                       # None
-    When the driver shifts Park                                                  # None
-    Then the cab light turns on                                                  # None
-    And the timer goes inactive                                                  # None
-    And the on timer resets to 10                                                # None
+  @feat2 @scenario2
+  Scenario Outline: Teste de login com múltiplos usuários -- @1.2   # features/nova_tabela_examples.feature:13
+    Given I am on the login page                                    # steps/nova_tabela_test.py:3
+    When I enter the username "user2" and the password "wrongpass"  # steps/nova_tabela_test.py:7
+    Then I should see the message "Invalid credentials"             # steps/nova_tabela_test.py:14
 
 Feature: Set the feature enable when the user changes the gear position out of Park # features/parameter.feature:1
 
@@ -145,6 +224,20 @@ Feature: Set vehicle precondiotions # features/precondition.feature:1
       | light_state | off   |
     Then the cabin light feature should be enabled    # steps/precondition_test.py:15
 
+Feature: Criação de uma tabela de teste # features/tabela.feature:1
+  Criação de uma tabela para testar o envio de informações ao arquivo step do framework behave
+  Background:   # features/tabela.feature:4
+
+  @feat1 @scenario1
+  Scenario: Criação de uma tabela                # features/tabela.feature:8
+    Given I reset the table                      # steps/tabela_test.py:3
+    Given I have a table with the following rows # steps/tabela_test.py:7
+      | chave | valor  |
+      | info1 | value1 |
+      | info2 | value2 |
+    When I send the table to the step file       # steps/tabela_test.py:13
+    Then I should see the table in the step file # steps/tabela_test.py:18
+
 Feature: Turn on the light in the vehicle cabin # features/turn_on_light.feature:2
 
   Scenario Outline: turn on the cabin light -- @1.1   # features/turn_on_light.feature:13
@@ -160,4 +253,6 @@ Feature: Turn on the light in the vehicle cabin # features/turn_on_light.feature
     And the vehicle power mode is greater than 10     # steps/validation.py:12
     When the user presses the toggle button pressed   # steps/validation.py:16
     Then the light state should be off                # steps/validation.py:30
+
+Feature: vehicle starting using valid key # features/vehicle.feature:1
 
